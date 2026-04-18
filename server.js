@@ -27,6 +27,10 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: (origin, callback) => {
+    const allowed = [
+      'https://rachnova-frontend.vercel.app',
+      'http://localhost:5173',
+    ];
     // Allow requests with no origin (Postman, mobile apps) or matching origins
     if (!origin || allowedOrigins.includes(origin) || /\.vercel\.app$/.test(origin)) {
       callback(null, true);
